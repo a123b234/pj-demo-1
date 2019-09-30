@@ -2,9 +2,11 @@ var express = require('express');
 var path = require('path');
 var router = express.Router();
 var data = require('./data');
+var cors = require("cors");
 
 
 var api = express(); // create new server
+api.use(cors());
 api.use('/data/v1', router);
 var cardInPage = 12;
 router.get('/:page', function(req, res, next){
